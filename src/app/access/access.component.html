@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 d-flex justify-content-end">
+    <div class="col-sm-6 d-flex justify-content-end" [@banner-animation]="stateCreate">
       <app-banner></app-banner>
     </div>
 
-    <div class="col-sm-6 d-flex justify-content-start">
+    <div class="col-sm-6 d-flex justify-content-start" [@panel-animation]="stateCreate">
 		<app-register></app-register>
     </div>  
   </div>
