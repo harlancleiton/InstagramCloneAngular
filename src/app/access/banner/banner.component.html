@@ -1,1 +1,4 @@
-<div class="banner"></div>
+<button class="btn btn-primary btn-sm" (click)="toggleState()">Toggle</button>
+<div class="banner">
+    <img *ngFor="let image of imageBanner" [src]='image.url' [@banner]="image.state" />
+</div>
