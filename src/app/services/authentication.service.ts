@@ -14,8 +14,13 @@ export class Authentication {
                     }).catch((error: Error) => {
                         console.log(error)
                     })
+                //firebase.auth().signOut()
             }).catch((error: Error) => {
                 console.log(error)
             })
+    }
+
+    public loginUser(user: User): void {
+        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
     }
 }
