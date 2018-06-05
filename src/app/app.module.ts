@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router';
 //endregion Angular
 
 //region Components
@@ -20,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './Home/posts/posts.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ROUTES } from './routes/app.routes';
 //endregion Services
 //endregion Imports
 
@@ -38,7 +40,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [Authentication],
   bootstrap: [AppComponent]
