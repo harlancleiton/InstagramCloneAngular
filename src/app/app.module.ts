@@ -24,6 +24,7 @@ import { Authentication } from './services/authentication.service';
 import { ROUTES } from './routes/app.routes';
 import { NavigationService } from './services/navigation.service';
 import { AuthenticationGuard } from './routes/routes-guard/authentication-guard.service';
+import { NewPostComponent } from './Home/new-post/new-post.component';
 //endregion Services
 //endregion Imports
 
@@ -37,7 +38,8 @@ import { AuthenticationGuard } from './routes/routes-guard/authentication-guard.
     HomeComponent,
     PostsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

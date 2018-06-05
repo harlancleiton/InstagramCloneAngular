@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
     this.authentication.logOut()
   }
 
+  public newPost(): void {
+    alert('Ok')
+  }
+
   ngOnInit() {
   }
 
