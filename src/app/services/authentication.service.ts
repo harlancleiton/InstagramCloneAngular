@@ -6,7 +6,7 @@ import { NavigationService } from "./navigation.service";
 @Injectable()
 export class Authentication {
 
-    public tokenId: Promise<any>;
+    public tokenId: string;
 
     constructor(private navigationService: NavigationService) { }
 
@@ -28,8 +28,9 @@ export class Authentication {
         return firebase.auth().signInWithEmailAndPassword(user.email, user.password)
             .then((response: any) => {
                 firebase.auth().currentUser.getIdToken()
-                    .then((token: Promise<any>) => {
+                    .then((token: string) => {
                         this.tokenId = token
+                        localStorage.setItem('tokenId', token)
                         this.navigationService.navigateTo('/home')
                     })
                     .catch((error: Error) => console.log(error))
@@ -38,11 +39,19 @@ export class Authentication {
 
     public logOut(): Promise<any> {
         return firebase.auth().signOut()
-            .then()
+            .then(() => {
+                localStorage.removeItem('tokenId')
+                this.tokenId = undefined
+                this.navigationService.navigateTo('')
+            })
             .catch((error: Error) => console.log(error))
     }
 
     public isLogged(): boolean {
+        if (this.tokenId === undefined && localStorage.getItem('tokenId') != null)
+            this.tokenId = localStorage.getItem('tokenId')
+        else if (this.tokenId === undefined)
+            this.navigationService.navigateTo('')
         return this.tokenId !== undefined
     }
 }
