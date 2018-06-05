@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, style, state, transition, animation, animate } from '@angular/animations';
+import { trigger, style, state, transition, animation, animate, keyframes } from '@angular/animations';
 import { ImageBanner } from '../../shared/image-banner.model'
 
 @Component({
@@ -12,17 +12,18 @@ import { ImageBanner } from '../../shared/image-banner.model'
     state: 1° parametro: nome
     state: 2° parametro: estilo (css)
   */
-  animations: [trigger('banner', [
-    state('hidden',
-      style({
-        opacity: 0
-      })),
-    state('visible',
-      style({
-        opacity: 1
-      })),
-    transition('hidden <=> visible', animate('2s ease-in'))
-  ])
+  animations: [
+    trigger('banner', [
+      state('hidden',
+        style({
+          opacity: 0
+        })),
+      state('visible',
+        style({
+          opacity: 1
+        })),
+      transition('hidden <=> visible', animate('2s ease-in'))
+    ])
   ]
 })
 export class BannerComponent implements OnInit {
