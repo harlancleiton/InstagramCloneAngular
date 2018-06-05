@@ -41,4 +41,8 @@ export class Authentication {
             .then()
             .catch((error: Error) => console.log(error))
     }
+
+    public isLogged(): boolean {
+        return this.tokenId !== undefined
+    }
 }
