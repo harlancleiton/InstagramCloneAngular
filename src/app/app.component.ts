@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       authDomain: "instagramangular-ba179.firebaseapp.com",
       databaseURL: "https://instagramangular-ba179.firebaseio.com",
       projectId: "instagramangular-ba179",
-      storageBucket: "",
+      storageBucket: "gs://instagramangular-ba179.appspot.com/",
       messagingSenderId: "498832327836"
     };
     firebase.initializeApp(config);
