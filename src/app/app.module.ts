@@ -27,6 +27,7 @@ import { NavigationService } from './services/navigation.service';
 import { AuthenticationGuard } from './routes/routes-guard/authentication-guard.service';
 import { PostService } from './services/post.service';
 import { StorageService } from './services/storage.service';
+import { ProgressService } from './services/progress.service';
 //endregion Services
 //endregion Imports
 
@@ -49,7 +50,7 @@ import { StorageService } from './services/storage.service';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [Authentication, NavigationService, AuthenticationGuard, PostService, StorageService],
+  providers: [Authentication, NavigationService, AuthenticationGuard, PostService, StorageService, ProgressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

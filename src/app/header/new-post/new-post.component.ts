@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Post } from '../../shared/post.model';
 import { PostService } from '../../services/post.service';
+import { ProgressService } from '../../services/progress.service';
 
 @Component({
   selector: 'app-new-post',
@@ -10,7 +11,10 @@ import { PostService } from '../../services/post.service';
 })
 export class NewPostComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+    private progressService: ProgressService
+  ) { }
 
   public formGroup: FormGroup = new FormGroup({
     'title': new FormControl(null)
@@ -25,6 +29,7 @@ export class NewPostComponent implements OnInit {
       this.image
     )
     this.postService.newPost(this.post)
+    console.log(this.progressService.snapshot)
   }
 
   public uploadImage(event: Event): void {
