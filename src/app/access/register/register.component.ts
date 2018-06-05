@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../shared/user.model';
+import { Authentication } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   })
   private user: User
 
-  constructor() { }
+  constructor(private authentication: Authentication) { }
 
   public navigateLogin(): void {
     this.loadRegister.emit(false)
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
       this.formGroup.value.password
     )
     console.log(this.user)
+    this.authentication.registerUser(this.user)
   }
 
   ngOnInit() {
