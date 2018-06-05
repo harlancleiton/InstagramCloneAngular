@@ -18,6 +18,8 @@ import { RegisterComponent } from './access/register/register.component';
 import { Authentication } from './services/authentication.service';
 import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './Home/posts/posts.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 //endregion Services
 //endregion Imports
 
@@ -29,7 +31,9 @@ import { PostsComponent } from './Home/posts/posts.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
