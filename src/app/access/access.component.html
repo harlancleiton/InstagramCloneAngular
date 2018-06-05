@@ -4,8 +4,15 @@
       <app-banner></app-banner>
     </div>
 
-    <div class="col-sm-6 d-flex justify-content-start" [@panel-animation]="stateCreate">
-		<app-register></app-register>
-    </div>  
+    <div *ngIf="loadRegister; else loadLogin">
+      <div class="col-sm-6 d-flex justify-content-start" [@panel-animation]="stateCreate">
+        <app-register (loadRegister)="navigateTo($event)"></app-register>
+      </div>
+    </div>
+    <ng-template #loadLogin>
+      <div class="col-sm-6 d-flex justify-content-start" [@panel-animation]="stateCreate">
+        <app-login (loadRegister)="navigateTo($event)"></app-login>
+      </div>
+    </ng-template>
   </div>
 </div>

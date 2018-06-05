@@ -35,8 +35,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class AccessComponent implements OnInit {
 
   public stateCreate: string = 'create'
+  public loadRegister: boolean = true
 
   constructor() { }
+
+  public navigateTo(event: boolean): void {
+    this.loadRegister = event
+  }
 
   ngOnInit() {
   }
