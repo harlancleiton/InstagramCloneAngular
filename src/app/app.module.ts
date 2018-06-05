@@ -22,6 +22,7 @@ import { PostsComponent } from './Home/posts/posts.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ROUTES } from './routes/app.routes';
+import { NavigationService } from './services/navigation.service';
 //endregion Services
 //endregion Imports
 
@@ -43,7 +44,7 @@ import { ROUTES } from './routes/app.routes';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [Authentication],
+  providers: [Authentication, NavigationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

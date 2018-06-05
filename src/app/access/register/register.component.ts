@@ -33,7 +33,10 @@ export class RegisterComponent implements OnInit {
       this.formGroup.value.password
     )
     console.log(this.user)
-    this.authentication.registerUser(this.user)
+    this.authentication.registerUser(this.user).then(() => {
+      this.loadRegister.emit(false)
+      this.authentication.logOut
+    })
   }
 
   ngOnInit() {

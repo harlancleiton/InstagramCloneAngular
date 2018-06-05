@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
       null,
       this.formGroup.value.password
     )
-    this.authentication.loginUser(this.user)
+    this.authentication.loginUser(this.user).then(() => console.log(this.authentication.tokenId))
+    console.log(this.authentication.tokenId)
   }
 
   ngOnInit() {
