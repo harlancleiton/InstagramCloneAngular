@@ -16,6 +16,8 @@ import { RegisterComponent } from './access/register/register.component';
 
 //region Services
 import { Authentication } from './services/authentication.service';
+import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './Home/posts/posts.component';
 //endregion Services
 //endregion Imports
 
@@ -25,7 +27,9 @@ import { Authentication } from './services/authentication.service';
     AccessComponent,
     BannerComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
