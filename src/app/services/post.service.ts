@@ -17,4 +17,13 @@ export class PostService {
             })
             .catch((error: Error) => console.log('Error: ', error))
     }
+
+    public getPosts(): any {
+        let userId: string = firebase.auth().currentUser.uid
+        firebase.database().ref('Posts').child(userId)
+            .once('value')
+            .then((snapshot: any) => {
+                console.log(snapshot.val())
+            })
+    }
 }
