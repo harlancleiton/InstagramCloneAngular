@@ -1,7 +1,7 @@
 //region Imports
 //region Angular
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
@@ -42,7 +42,7 @@ import { ProgressService } from './services/progress.service';
     PostsComponent,
     HeaderComponent,
     FooterComponent,
-    NewPostComponent
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,

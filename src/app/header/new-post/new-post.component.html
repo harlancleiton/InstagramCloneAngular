@@ -11,6 +11,9 @@
         <div class="modal-body">
           <input type="file" class="btn form-control-file" accept="image/*" (change)="uploadImage($event)">
           <input type="text" placeholder="Título da publicação" class="form-control" formControlName="title">
+          <div *ngIf="progressService.status == progressService.LOADING" class="progress">
+            <div class="progress-bar" [style.width.%]="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">{{progress}}%</div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

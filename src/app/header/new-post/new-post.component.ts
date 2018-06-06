@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Post } from '../../shared/post.model';
 import { PostService } from '../../services/post.service';
 import { ProgressService } from '../../services/progress.service';
+import { Observable, interval, observable, Subject, pipe } from 'rxjs';
+import { takeUntil } from 'rxjs/operators'
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css']
 })
+
 export class NewPostComponent implements OnInit {
 
   constructor(
@@ -22,6 +25,7 @@ export class NewPostComponent implements OnInit {
   })
   private post: Post
   private image: File
+  public progress: number = 0
 
   public newPost(): void {
     this.post = new Post(
@@ -29,12 +33,21 @@ export class NewPostComponent implements OnInit {
       this.image
     )
     this.postService.newPost(this.post)
-    console.log(this.progressService.snapshot)
+
+    let observer = interval(1000)
+    let proceed = new Subject()
+
+    observer
+      .pipe(takeUntil(proceed))
+      .subscribe(() => {
+        this.progress = this.progressService.getProgress()
+        if (this.progressService.status == this.progressService.COMPLETE)
+          proceed.next(false)
+      })
   }
 
   public uploadImage(event: Event): void {
     this.image = (<HTMLInputElement>event.target).files[0]
-    console.log(this.image)
   }
 
   ngOnInit() {

@@ -11,11 +11,9 @@ export class PostService {
     public newPost(post: Post) {
         let userId: string = firebase.auth().currentUser.uid
         post.id = firebase.database().ref().push().key
-        console.log(post)
         firebase.database().ref('Posts').child(userId).child(post.id).set(post)
             .then((response: any) => {
-                console.log('Success: ', response)
-                this.storageService.uploadFile(post.image)
+                this.storageService.uploadFile(post.image, post.id)
             })
             .catch((error: Error) => console.log('Error: ', error))
     }
